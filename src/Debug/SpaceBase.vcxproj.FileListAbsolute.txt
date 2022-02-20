@@ -1,0 +1,2 @@
+C:\Users\mikey\Skola\BI-PGR\SpaceBase\Debug\SpaceBase.exe
+C:\Users\mikey\Skola\BI-PGR\SpaceBase\Debug\SpaceBase.pdb

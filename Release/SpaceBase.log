@@ -1,0 +1,17 @@
+﻿  Application.cpp
+  BillboardData.cpp
+  Explosion.cpp
+  Fog.cpp
+  LightObject.cpp
+  main.cpp
+  Material.cpp
+  ModelData.cpp
+  CameraObject.cpp
+  SceneObject.cpp
+  ShaderProgram.cpp
+  Skybox.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 755 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SpaceBase.vcxproj -> C:\Users\mikey\Skola\BI-PGR\SpaceBase\Release\SpaceBase.exe

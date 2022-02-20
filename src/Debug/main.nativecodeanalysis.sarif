@@ -1,0 +1,2097 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'aiVertexWeight::mVertexId' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/mesh.h"
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 5,
+                  "endLine": 214,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiVertexWeight@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "aiVertexWeight::mVertexId"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'aiVertexWeight::mWeight' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/mesh.h"
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 5,
+                  "endLine": 214,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiVertexWeight@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "aiVertexWeight::mWeight"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'aiBone::mWeights' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/mesh.h"
+                },
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 5,
+                  "endLine": 260,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiBone@@QAE@ABU0@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "aiBone::mWeights"
+          }
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiLightSourceType' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/light.h"
+                },
+                "region": {
+                  "startLine": 240,
+                  "startColumn": 35,
+                  "endLine": 240,
+                  "endColumn": 36
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiLight@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiPropertyTypeInfo' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.h"
+                },
+                "region": {
+                  "startLine": 613,
+                  "startColumn": 16,
+                  "endLine": 613,
+                  "endColumn": 18
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiMaterialProperty@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiReturn' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.h"
+                },
+                "region": {
+                  "startLine": 1401,
+                  "startColumn": 5,
+                  "endLine": 1401,
+                  "endColumn": 77
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "aiGetMaterialFloat",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiTextureType' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.inl"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 29,
+                  "endLine": 66,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetTexture@aiMaterial@@QBE?AW4aiReturn@@W4aiTextureType@@IPAUaiString@@PAW4aiTextureMapping@@PAIPAMPAW4aiTextureOp@@PAW4aiTextureMapMode@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiTextureMapping' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.inl"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 29,
+                  "endLine": 66,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetTexture@aiMaterial@@QBE?AW4aiReturn@@W4aiTextureType@@IPAUaiString@@PAW4aiTextureMapping@@PAIPAMPAW4aiTextureOp@@PAW4aiTextureMapMode@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiTextureOp' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.inl"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 29,
+                  "endLine": 66,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetTexture@aiMaterial@@QBE?AW4aiReturn@@W4aiTextureType@@IPAUaiString@@PAW4aiTextureMapping@@PAIPAMPAW4aiTextureOp@@PAW4aiTextureMapMode@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiTextureMapMode' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.inl"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 29,
+                  "endLine": 66,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetTexture@aiMaterial@@QBE?AW4aiReturn@@W4aiTextureType@@IPAUaiString@@PAW4aiTextureMapping@@PAIPAMPAW4aiTextureOp@@PAW4aiTextureMapMode@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/anim.h"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 5,
+                  "endLine": 164,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiMeshKey@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "aiMeshKey::mTime"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/anim.h"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 5,
+                  "endLine": 164,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiMeshKey@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "aiMeshKey::mValue"
+          }
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiAnimBehaviour' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/anim.h"
+                },
+                "region": {
+                  "startLine": 329,
+                  "startColumn": 16,
+                  "endLine": 329,
+                  "endColumn": 18
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0aiNodeAnim@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'aiMetadataType' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/metadata.h"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 49,
+                  "endLine": 97,
+                  "endColumn": 56
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetAiType@@YA?AW4aiMetadataType@@_N@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::z' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::z"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::data' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::data"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::y' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::y"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::q' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::q"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::t' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::t"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::p' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::p"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::s' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::s"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::x' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::x"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::g' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::g"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::a' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::a"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::b' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::b"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::r' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::r"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::w' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": [],
+          "properties": {
+            "targetSymbol": "glm::tvec4<float,5>::<unnamed-tag>::<unnamed-tag>::w"
+          }
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'glm::ctor' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 53,
+                  "endLine": 182,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0?$tvec4@M$04@glm@@QAE@W4ctor@1@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.28.29337.0"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00C1B1D0 -il C:\\Users\\mikey\\AppData\\Local\\Temp\\_CL_7f147c2aast -typedil -f main.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829337 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -I C:\\Users\\mikey\\Skola\\BI-PGR\\pgr-framework\\include -I C:\\Users\\mikey\\Skola\\BI-PGR\\SpaceBase\\models -nologo -W 3 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\main.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\mikey\\Skola\\BI-PGR\\SpaceBase -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/mesh.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/light.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/material.inl"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/anim.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/assimp/metadata.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/pgr-framework/include/glm/detail/type_vec4.inl"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/skybox.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/skybox.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/pgr.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/gl_core_4_4.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/gl/freeglut.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/gl/freeglut_std.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/gl/freeglut_ext.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/il/il.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/glm.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/_fixes.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/fwd.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_int.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/setup.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/platform.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_float.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/precision.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/vec2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec2.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/vec3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/vec4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec4_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat2x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x2.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_matrix.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat2x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat2x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat2x4.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat3x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x2.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat3x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat3x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat3x4.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat4x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x2.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x2.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat4x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x3.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/mat4x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x4.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x4.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_mat4x4_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_matrix.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/geometric.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_geometric.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_geometric.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_exponential.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec1.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_vec1.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_exponential.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_vector_relational.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_vector_relational.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_vector_relational_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/_vectorize.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_exponential_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/exponential.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_common.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_common.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_common_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/common.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_geometric_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/geometric.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_matrix_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/matrix.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/trigonometric.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_trigonometric.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_trigonometric.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_trigonometric_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/exponential.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/common.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/packing.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_packing.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_packing.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_half.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/type_half.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_packing_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/matrix.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/vector_relational.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/integer.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_integer.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_integer.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/detail/func_integer_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/simd/integer.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/type_ptr.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/quaternion.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/constants.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/constants.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/quaternion.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/quaternion_simd.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/type_ptr.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/matrix_transform.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/glm/gtc/matrix_transform.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/scene.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/types.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/defs.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/config.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/vector3.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/vector2.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/compiler/pushpack1.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/compiler/poppack1.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/color4.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/matrix3x3.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/matrix4x4.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/quaternion.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/vector2.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/vector3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/color4.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/quaternion.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/matrix3x3.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/matrix4x4.inl"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/texture.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/camera.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/postprocess.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/assimp/importer.hpp"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/shader.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/image.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/meshdata.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/pgr-framework/include/gldebug.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/modeldata.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/material.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/shaderprogram.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/shaderprogram.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/SpaceBase/SceneObject.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/sceneobject.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/cameraobject.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/cameraobject.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/mikey/Skola/BI-PGR/SpaceBase/ModelData.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/material.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/main.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/application.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/lightobject.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/explosion.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/mikey/skola/bi-pgr/spacebase/fog.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        }
+      ]
+    }
+  ]
+}
