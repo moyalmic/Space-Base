@@ -13,3 +13,4 @@ The second folder called [src](src) contains the source code for this project.
 * F: Toggle camera lock
 * C: Cycle through static cameras (Only in locked camera mode)
 * LMB: Interaction with specific objects.
+* Q: Attach the camera to the flying airplane.
