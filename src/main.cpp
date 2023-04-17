@@ -9,7 +9,7 @@ void reshapeCallback(int width, int height)
 
 void displayCallback()
 {
-	App.drawDisplay();
+	App.updateDisplay();
 }
 
 void keyboardCallback(unsigned char keyPressed, int mouseX, int mouseY)

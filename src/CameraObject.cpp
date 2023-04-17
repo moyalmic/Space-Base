@@ -2,14 +2,14 @@
 
 CameraObject::CameraObject() :
     position(glm::vec3(0.0f, 0.0f, 0.0f)), upVector(glm::normalize(glm::vec3(0.0f, 1.0f, 0.0f))), direction(glm::normalize(glm::vec3(0.0f, 0.0f, -1.0f))),
-    leftVector(glm::normalize(glm::vec3(-1.0f, 0.0f, 0.0f))), pitch(0), yaw(-90.0f), speed(2), freeMode(false)
+    leftVector(glm::normalize(glm::vec3(-1.0f, 0.0f, 0.0f))), pitch(0), yaw(-90.0f), speed(2), freeMode(false), m_AttachedToPlane(false)
 {
     view = 1;
 }
 
 CameraObject::CameraObject(glm::vec3 pos, glm::vec3 upVec, glm::vec3 dir, glm::vec3 leftVec, float pitch, float yaw, float speed, bool freeMode):
     position(pos), upVector(glm::normalize(upVec)), direction(glm::normalize(dir)), leftVector(glm::normalize(leftVec)), 
-    pitch(pitch), yaw(yaw), speed(speed), freeMode(freeMode)
+    pitch(pitch), yaw(yaw), speed(speed), freeMode(freeMode), m_AttachedToPlane(false)
 {
     view = 1;
 }
@@ -195,6 +195,16 @@ void CameraObject::changeView()
         setYaw(-45.0f);
         view = 1;
     }
+}
+
+void CameraObject::togglePlaneAttach()
+{
+  m_AttachedToPlane = !m_AttachedToPlane;
+}
+
+bool CameraObject::attachedToPlane()
+{
+  return m_AttachedToPlane;
 }
 
 void CameraObject::checkBounds()

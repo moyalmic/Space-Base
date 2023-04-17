@@ -21,6 +21,7 @@ private:
 	float speed;
 
 	bool freeMode;
+	bool m_AttachedToPlane;
 	int view;
 	void checkBounds();
 public:
@@ -53,5 +54,6 @@ public:
 	bool isFree();
 	void changeMode();
 	void changeView();
-	
+	void togglePlaneAttach();
+	bool attachedToPlane();
 };

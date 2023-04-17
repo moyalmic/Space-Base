@@ -71,7 +71,7 @@ public:
 	void handleKeyboard(unsigned char keyPressed, int mouseX, int mouseY);
 	void handleSpecial(int keyPressed, int mouseX, int mouseY);
 	void handleReshape(int width, int height);
-	void drawDisplay();
+	void updateDisplay();
 	void handleTimer();
 };
 

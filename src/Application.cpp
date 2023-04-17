@@ -292,6 +292,8 @@ void Application::handleKeyboard(unsigned char keyPressed, int mouseX, int mouse
 		if(!camera->isFree())
 			camera->changeView();
 		break;
+	case 'q':
+		camera->togglePlaneAttach();
 	default:
 		break;
 	}
@@ -317,10 +319,17 @@ void Application::handleReshape(int width, int height)
 	windowHeight = height;
 }
 
-void Application::drawDisplay()
+void Application::updateDisplay()
 {
 	GLbitfield mask = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 	glClear(mask);
+	//Set the cameras position and pitch/yaw to that of the plane if it should be attached
+	if (camera->attachedToPlane())
+	{
+		auto newPos = objects[0]->getPosition();
+		newPos.y += 2.0f; //Make the camera go above the plane
+		camera->setPosition(newPos);
+	}
 	//Calculate view and projection matrices
 	glm::vec3 cameraPosition = camera->getPosition();
 	glm::vec3 cameraUpVector = camera->getUpVector();
