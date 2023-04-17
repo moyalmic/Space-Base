@@ -1,1 +1,4 @@
 /src/.vs/
+src/x64/
+src/Release/
+src/Debug/
