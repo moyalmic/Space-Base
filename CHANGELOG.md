@@ -5,3 +5,6 @@ The original version of the project that was handed in in the 2020/21 summer sem
 
 ## Version 1.1
 Added the ability to attach your camera to the plane's position using Q.
+
+## Version 1.2
+Added the ability to load the skybox texture and the positions of plants from the settings/config.txt file using R.

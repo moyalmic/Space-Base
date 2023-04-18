@@ -30,11 +30,9 @@ void Application::initializeObjects()
 	objects.push_back(new SceneObject(3, glm::vec3(10.0f, -1.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock1"]));
 	objects.push_back(new SceneObject(3, glm::vec3(-35.0f, -0.7f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock2"]));
 	objects.push_back(new SceneObject(3, glm::vec3(46.0f, 6.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock3"]));
-	plants.push_back(new SceneObject(4, glm::vec3(35.0f, -1.7f, 5.0f), 0.0f, 37.5f, 0.0f, 0.0f, 2.0f, models["plant"]));
-	plants.push_back(new SceneObject(5, glm::vec3(-30.0f, -1.7f, 15.0f), 0.0f, 60.0f, 0.0f, 0.0f, 2.0f, models["plant"]));
-	plants.push_back(new SceneObject(6, glm::vec3(52.0f, 20.0f, -63.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, models["plant"]));
-	plants.push_back(new SceneObject(7, glm::vec3(-20.0f, -1.7f, -30.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["plant"]));
-	plants.push_back(new SceneObject(8, glm::vec3(15.0f, -1.7f, 25.0f), 0.0f, 37.5f, 0.0f, 0.0f, 2.0f, models["plant"]));
+
+	//This loads in the plants into the scene
+	loadConfig();
 }
 
 void Application::initializeCamera()
@@ -71,7 +69,7 @@ void Application::initializeLights()
 
 void Application::initializeSkybox()
 {
-	skyboxDay = new Skybox(skyboxShader, "day");
+	skybox = new Skybox(skyboxShader, SkyboxType::Day);
 }
 
 void Application::initializeFog()
@@ -142,7 +140,7 @@ bool Application::checkCollisions(CameraObject* camera, vector<SceneObject*> obj
 }
 
 Application::Application(int width, int height, string title):
-	windowWidth(width), windowHeight(height), windowTitle(title), elapsedTime(0)
+	windowWidth(width), windowHeight(height), windowTitle(title), elapsedTime(0), m_ConfigFilename("settings/config.txt")
 {
 	
 }
@@ -179,11 +177,11 @@ void Application::initializeResources()
 	objectShader.initializeShaders();
 	skyboxShader.initializeShaders();
 	billboardShader.initializeShaders();
+	initializeSkybox();
 	initializeModels();
 	initializeLights();
 	initializeObjects();
 	initializeCamera();
-	initializeSkybox();
 	initializeFog();
 	initializeBillboards();
 	glutWarpPointer(windowHeight / 2, windowWidth / 2);
@@ -294,6 +292,10 @@ void Application::handleKeyboard(unsigned char keyPressed, int mouseX, int mouse
 		break;
 	case 'q':
 		camera->togglePlaneAttach();
+		break;
+	case 'r':
+		loadConfig();
+		break;
 	default:
 		break;
 	}
@@ -342,7 +344,7 @@ void Application::updateDisplay()
 	);
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.0f), windowWidth / (float)windowHeight, 0.1f, 1000.0f);
 	//Draw Skybox
-	skyboxDay->draw(skyboxShader, viewMatrix, projectionMatrix, elapsedTime);
+	skybox->draw(skyboxShader, viewMatrix, projectionMatrix, elapsedTime);
 	//Draw Scene objects
 	for (SceneObject* object : objects)
 	{
@@ -393,5 +395,45 @@ void Application::handleTimer()
 	updateSun();
 
 	glutPostRedisplay();
+}
+
+void Application::loadConfig()
+{
+	//Clear the plants array because they are going to be loaded from the config again
+	plants.clear();
+
+	ifstream inFile(m_ConfigFilename);
+	if (!inFile.is_open())
+		return;
+
+	std::string line;
+	int idx = 4; // This is a workaround for the plants to have id's and be clickable
+	while (std::getline(inFile, line))
+	{
+		std::string delimiter = ":";
+		std::string token = line.substr(0, line.find(delimiter));
+
+		if (token == "skyboxType")
+		{
+			token = line.substr(line.find(delimiter)+1, line.length());
+
+			if (token == "day")
+				skybox->setType(SkyboxType::Day);
+			else if (token == "night")
+				skybox->setType(SkyboxType::Night);
+			skybox->loadImages();
+		}
+		else if (token == "plant")
+		{
+			float x, y, z;
+			std::stringstream position(line.substr(line.find(delimiter) + 1, line.length()));
+			position >> x >> y >> z;
+
+			auto pos = glm::vec3(x, y, z);									//Give the plant a random spin
+			plants.push_back(new SceneObject(idx, pos, 0.0f, (float)(rand() % 360), 0.0f, 0.0f, 2.0f, models[token]));
+			idx++;
+		}
+	
+	}
 }
 

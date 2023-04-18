@@ -12,6 +12,10 @@
 #include <string>
 #include <map>
 #include <algorithm>
+#include <fstream>
+#include <unordered_map>
+#include <cstdlib>
+#include <sstream>
 
 using namespace std;
 ///Class that holds information about the whole applicaton
@@ -38,8 +42,7 @@ private:
 	vector<PointLightObject*> lamps;
 	vector<SpotLightObject*> spotlights;
 	//Skybox
-	Skybox* skyboxDay;
-	Skybox* skyboxNight;
+	Skybox* skybox;
 	SkyboxShaderProgram skyboxShader;
 	//Billboards
 	BillboardShaderProgram billboardShader;
@@ -50,6 +53,8 @@ private:
 	//Explosions
 	BillboardData* explosionData;
 	vector<Explosion*> explosions;
+	//Config
+	std::string m_ConfigFilename;
 	void addModelName(string modelName);
 	void initializeModels();
 	void initializeObjects();
@@ -73,6 +78,7 @@ public:
 	void handleReshape(int width, int height);
 	void updateDisplay();
 	void handleTimer();
+	void loadConfig();
 };
 
 

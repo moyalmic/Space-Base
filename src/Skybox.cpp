@@ -1,7 +1,7 @@
 #include "Skybox.h"
 
 
-Skybox::Skybox(SkyboxShaderProgram& shader, std::string type)
+Skybox::Skybox(SkyboxShaderProgram& shader, const SkyboxType& type): m_Type(type)
 {
     static const float screenCoords[] = {
    -1.0f, -1.0f,
@@ -30,25 +30,7 @@ Skybox::Skybox(SkyboxShaderProgram& shader, std::string type)
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 
-    std::vector<std::string> images = { "right", "left", "top", "bottom", "front", "back" };
-
-    for (int i = 0; i < 6; i++)
-    {
-        std::string texName = "skybox/" + type + "/" + images[i] + ".png";
-        std::cout << "Loading cube map texture: " << texName << std::endl;
-        if (!pgr::loadTexImage2D(texName, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i)) {
-            pgr::dieWithError("Skybox cube map loading failed!");
-        }
-    }
-
-    glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-
-    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-    CHECK_GL_ERROR();
+    loadImages();
 }
 
 void Skybox::draw(SkyboxShaderProgram& shader, glm::mat4 viewMatrix, glm::mat4 projectionMatrix, float time)
@@ -72,4 +54,38 @@ void Skybox::draw(SkyboxShaderProgram& shader, glm::mat4 viewMatrix, glm::mat4 p
 
     glBindVertexArray(0);
     glUseProgram(0);
+}
+
+void Skybox::setType(const SkyboxType& val)
+{
+  m_Type = val;
+}
+
+void Skybox::loadImages()
+{
+  std::vector<std::string> images = { "right", "left", "top", "bottom", "front", "back" };
+
+  std::string typeStr;
+  if (m_Type == SkyboxType::Day)
+    typeStr = "day";
+  else
+    typeStr = "night";
+
+  for (int i = 0; i < 6; i++)
+  {
+    std::string texName = "skybox/" + typeStr + "/" + images[i] + ".png";
+    std::cout << "Loading cube map texture: " << texName << std::endl;
+    if (!pgr::loadTexImage2D(texName, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i)) {
+      pgr::dieWithError("Skybox cube map loading failed!");
+    }
+  }
+
+  glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+  glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+  glTexParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+  glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+  CHECK_GL_ERROR();
 }
