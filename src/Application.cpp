@@ -30,9 +30,6 @@ void Application::initializeObjects()
 	objects.push_back(new SceneObject(3, glm::vec3(10.0f, -1.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock1"]));
 	objects.push_back(new SceneObject(3, glm::vec3(-35.0f, -0.7f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock2"]));
 	objects.push_back(new SceneObject(3, glm::vec3(46.0f, 6.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock3"]));
-
-	//This loads in the plants into the scene
-	loadConfig();
 }
 
 void Application::initializeCamera()
@@ -180,10 +177,11 @@ void Application::initializeResources()
 	initializeSkybox();
 	initializeModels();
 	initializeLights();
-	initializeObjects();
 	initializeCamera();
 	initializeFog();
 	initializeBillboards();
+	initializeObjects();
+	loadConfig();
 	glutWarpPointer(windowHeight / 2, windowWidth / 2);
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -194,7 +192,7 @@ void Application::handlePassiveMouse(int x, int y)
 {
 	if (camera->isFree())
 	{
-		camera->update(x, y, windowWidth, windowHeight);
+		camera->updateMouseMovement(x, y, windowWidth, windowHeight);
 		glutWarpPointer(windowWidth / 2, windowHeight / 2);
 	}
 	else
@@ -296,6 +294,9 @@ void Application::handleKeyboard(unsigned char keyPressed, int mouseX, int mouse
 	case 'r':
 		loadConfig();
 		break;
+	case 'n':
+		camera->toggleMoveAlongSpline();
+		break;
 	default:
 		break;
 	}
@@ -325,12 +326,19 @@ void Application::updateDisplay()
 {
 	GLbitfield mask = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 	glClear(mask);
-	//Set the cameras position and pitch/yaw to that of the plane if it should be attached
+	//Set the cameras position to that of the plane if it should be attached
 	if (camera->attachedToPlane())
 	{
 		auto newPos = objects[0]->getPosition();
 		newPos.y += 2.0f; //Make the camera go above the plane
 		camera->setPosition(newPos);
+	}
+	//Set the cameras position to the appropriate point along the spline curve
+	else if (camera->movingAlongSpline())
+	{
+		std::vector<glm::vec3> testPoints = {glm::vec3(0.0f, 20.0f, 0.0f), glm::vec3(10.0f, 20.0f, 5.0f), glm::vec3(15.0f, 20.0f, -5.0f), glm::vec3(-10.0f, 20.0f, 5.0f) };
+		float t = glm::sin(elapsedTime) * 0.5f + 0.5f; //This produces an oscillating value between 0 and 1 based on game time
+		camera->updateSplineMovement(t);
 	}
 	//Calculate view and projection matrices
 	glm::vec3 cameraPosition = camera->getPosition();
@@ -342,7 +350,7 @@ void Application::updateDisplay()
 		cameraCenter,
 		cameraUpVector
 	);
-	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.0f), windowWidth / (float)windowHeight, 0.1f, 1000.0f);
+	glm::mat4 projectionMatrix = glm::perspective(glm::radians(camera->getFOV()), windowWidth / (float)windowHeight, 0.1f, 1000.0f);
 	//Draw Skybox
 	skybox->draw(skyboxShader, viewMatrix, projectionMatrix, elapsedTime);
 	//Draw Scene objects
@@ -413,6 +421,7 @@ void Application::loadConfig()
 		std::string delimiter = ":";
 		std::string token = line.substr(0, line.find(delimiter));
 
+		//Load the type of the skybox
 		if (token == "skyboxType")
 		{
 			token = line.substr(line.find(delimiter)+1, line.length());
@@ -423,6 +432,7 @@ void Application::loadConfig()
 				skybox->setType(SkyboxType::Night);
 			skybox->loadImages();
 		}
+		//Load locations for the plants
 		else if (token == "plant")
 		{
 			float x, y, z;
@@ -432,6 +442,15 @@ void Application::loadConfig()
 			auto pos = glm::vec3(x, y, z);									//Give the plant a random spin
 			plants.push_back(new SceneObject(idx, pos, 0.0f, (float)(rand() % 360), 0.0f, 0.0f, 2.0f, models[token]));
 			idx++;
+		}
+		//Load the spline curves to be used in the spline curve camera movement
+		else if (token == "splinePoint")
+		{
+			float x, y, z;
+			std::stringstream position(line.substr(line.find(delimiter) + 1, line.length()));
+			position >> x >> y >> z;
+
+			camera->addPointToSpline(glm::vec3(x, y, z));
 		}
 	
 	}

@@ -4,3 +4,7 @@ plant:-30.0 -1.7 15.0
 plant:52.0 20.0 -63.0
 plant:-20.0 -1.7 -30.0
 plant:15.0 -1.7 25.0
+splinePoint: 0.0 20.0 0.0
+splinePoint: 10.0 20.0 5.0
+splinePoint: 15.0 20.0 -5.0
+splinePoint: -10.0 20.0 5.0

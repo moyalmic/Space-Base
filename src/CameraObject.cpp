@@ -2,19 +2,19 @@
 
 CameraObject::CameraObject() :
     position(glm::vec3(0.0f, 0.0f, 0.0f)), upVector(glm::normalize(glm::vec3(0.0f, 1.0f, 0.0f))), direction(glm::normalize(glm::vec3(0.0f, 0.0f, -1.0f))),
-    leftVector(glm::normalize(glm::vec3(-1.0f, 0.0f, 0.0f))), pitch(0), yaw(-90.0f), speed(2), freeMode(false), m_AttachedToPlane(false)
+    leftVector(glm::normalize(glm::vec3(-1.0f, 0.0f, 0.0f))), pitch(0), yaw(-90.0f), speed(2), m_FOV(60.0f), freeMode(false), m_AttachedToPlane(false), m_MovingAlongSpline(false)
 {
     view = 1;
 }
 
-CameraObject::CameraObject(glm::vec3 pos, glm::vec3 upVec, glm::vec3 dir, glm::vec3 leftVec, float pitch, float yaw, float speed, bool freeMode):
-    position(pos), upVector(glm::normalize(upVec)), direction(glm::normalize(dir)), leftVector(glm::normalize(leftVec)), 
-    pitch(pitch), yaw(yaw), speed(speed), freeMode(freeMode), m_AttachedToPlane(false)
+CameraObject::CameraObject(glm::vec3 pos, glm::vec3 upVec, glm::vec3 dir, glm::vec3 leftVec, float pitch, float yaw, float speed, bool freeMode) :
+  position(pos), upVector(glm::normalize(upVec)), direction(glm::normalize(dir)), leftVector(glm::normalize(leftVec)),
+  pitch(pitch), yaw(yaw), speed(speed), m_FOV(60.0f), freeMode(freeMode), m_AttachedToPlane(false), m_MovingAlongSpline(false)
 {
     view = 1;
 }
 
-void CameraObject::update(int x, int y, int winHeight, int winWidth)
+void CameraObject::updateMouseMovement(int x, int y, int winHeight, int winWidth)
 {
 	float mouseSpeed = 0.1f;
 	int xScreenCenter = winHeight / 2;
@@ -119,6 +119,16 @@ void CameraObject::setSpeed(float newSpeed)
     speed = newSpeed;
 }
 
+float CameraObject::getFOV()
+{
+  return m_FOV;
+}
+
+void CameraObject::setFOV(float fov)
+{
+  m_FOV = fov;
+}
+
 float CameraObject::getSize()
 {
     return 1.0f;
@@ -221,4 +231,49 @@ void CameraObject::checkBounds()
         position.z = 73.0f;
     else if (position.z < -73.0f)
         position.z = -73.0f;
+}
+
+void CameraObject::updateSplineMovement(float t)
+{
+  // Add two extra control points at the end to smoothly approach the end point
+  glm::vec3 P1 = m_SplinePoints[m_SplinePoints.size() - 2];
+  glm::vec3 P2 = m_SplinePoints[m_SplinePoints.size() - 1];
+  glm::vec3 Q1 = 2.0f * P2 - P1;
+  glm::vec3 Q2 = 2.0f * Q1 - P2;
+  std::vector<glm::vec3> extendedControlPoints = m_SplinePoints;
+  extendedControlPoints.push_back(Q1);
+  extendedControlPoints.push_back(Q2);
+
+  // Calculate the index of the control point corresponding to t
+  int p = int(t * float(extendedControlPoints.size() - 3));
+  t = t * float(extendedControlPoints.size() - 3) - float(p);
+
+  // Calculate the position on the spline curve corresponding to t
+  glm::vec3 A = extendedControlPoints[p];
+  glm::vec3 B = extendedControlPoints[p + 1];
+  glm::vec3 C = extendedControlPoints[p + 2];
+  glm::vec3 D = extendedControlPoints[p + 3];
+
+  glm::vec3 P = 0.5f * (
+    (-A + 3.0f * B - 3.0f * C + D) * (t * t * t)
+    + (2.0f * A - 5.0f * B + 4.0f * C - D) * (t * t)
+    + (-A + C) * t
+    + 2.0f * B);
+
+  setPosition(P);
+}
+
+void CameraObject::toggleMoveAlongSpline()
+{
+  m_MovingAlongSpline = !m_MovingAlongSpline;
+}
+
+bool CameraObject::movingAlongSpline()
+{
+  return m_MovingAlongSpline;
+}
+
+void CameraObject::addPointToSpline(const glm::vec3& point)
+{
+  m_SplinePoints.push_back(point);
 }
