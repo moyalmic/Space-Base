@@ -232,75 +232,83 @@ void Application::handleMouse(int buttonPressed, int buttonState, int mouseX, in
 	}
 }
 
-void Application::handleKeyboard(unsigned char keyPressed, int mouseX, int mouseY)
+void Application::handleKeyboard()
 {
-	switch (keyPressed)
-	{
-	case 27: //escape
+	//escape 
+	if (m_KeyStates[27])
 		glutLeaveMainLoop();
-		break;
-	case 'w':
-		if (camera->isFree())
-		{
-			camera->moveForward();
-			camera->updateShaderPosition(objectShader);
-		}
-		break;
-	case 's':
-		if (camera->isFree())
-		{
-			camera->moveBack();
-			camera->updateShaderPosition(objectShader);
-		}
-		break;
-	case 'a':
-		if (camera->isFree())
-		{
-			camera->moveLeft();
-			camera->updateShaderPosition(objectShader);
-		}
-		break;
-	case 'd':
-		if (camera->isFree())
-		{
-			camera->moveRight();
-			camera->updateShaderPosition(objectShader);
-		}
-		break;
-	case 'W':
+	//Modified keys come before solo ones
+	else if (m_KeyStates['w'] && m_KeyStates[GLUT_ACTIVE_ALT])
+	{
 		if (camera->isFree())
 		{
 			camera->moveUp();
 			camera->updateShaderPosition(objectShader);
 		}
-		break;
-	case 'S':
+	}
+	else if (m_KeyStates['s'] && m_KeyStates[GLUT_ACTIVE_ALT])
+	{
 		if (camera->isFree())
 		{
 			camera->moveDown();
 			camera->updateShaderPosition(objectShader);
 		}
-		break;
-	case 'f':
-		camera->changeMode();
-		break;
-	case 'c':
-		if(!camera->isFree())
-			camera->changeView();
-		break;
-	case 'q':
-		camera->togglePlaneAttach();
-		break;
-	case 'r':
-		loadConfig();
-		break;
-	case 'n':
-		camera->toggleMoveAlongSpline();
-		break;
-	default:
-		break;
 	}
+	else if (m_KeyStates['w'])
+	{
+		if (camera->isFree())
+		{
+			camera->moveForward();
+			camera->updateShaderPosition(objectShader);
+		}
+	}
+	else if (m_KeyStates['s'])
+	{
+		if (camera->isFree())
+		{
+			camera->moveBack();
+			camera->updateShaderPosition(objectShader);
+		}
+	}
+	else if (m_KeyStates['a'])
+	{
+		if (camera->isFree())
+		{
+			camera->moveLeft();
+			camera->updateShaderPosition(objectShader);
+		}
+	}
+	else if (m_KeyStates['d'])
+	{
+		if (camera->isFree())
+		{
+			camera->moveRight();
+			camera->updateShaderPosition(objectShader);
+		}
+	}
+	else if (m_KeyStates['f'])
+		camera->changeMode();
+	else if (m_KeyStates['c'])
+	{
+		if (!camera->isFree())
+			camera->changeView();
+	}
+	else if (m_KeyStates['q'])
+		camera->togglePlaneAttach();
+	else if (m_KeyStates['r'])
+		loadConfig();
+	else if (m_KeyStates['n'])
+		camera->toggleMoveAlongSpline();
+
+	//Input is handled, clear for the next frame
+	m_KeyStates.clear();
+
 	glutPostRedisplay();
+}
+
+void Application::addKeyActive(unsigned char activeKey)
+{
+	m_KeyStates[activeKey] = true;
 }
 
 void Application::handleSpecial(int keyPressed, int mouseX, int mouseY)
@@ -324,6 +332,8 @@ void Application::handleReshape(int width, int height)
 
 void Application::updateDisplay()
 {
+	//Handle keyboard input
+	handleKeyboard();
 	GLbitfield mask = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 	glClear(mask);
 	//Set the cameras position to that of the plane if it should be attached

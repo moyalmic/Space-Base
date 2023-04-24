@@ -14,7 +14,22 @@ void displayCallback()
 
 void keyboardCallback(unsigned char keyPressed, int mouseX, int mouseY)
 {
-	App.handleKeyboard(keyPressed, mouseX, mouseY);
+	App.addKeyActive(keyPressed);
+	auto res = glutGetModifiers();
+	switch (res)
+	{
+		case GLUT_ACTIVE_SHIFT:
+			App.addKeyActive(GLUT_ACTIVE_SHIFT);
+			break;
+		case GLUT_ACTIVE_CTRL:
+			App.addKeyActive(GLUT_ACTIVE_CTRL);
+			break;
+		case GLUT_ACTIVE_ALT:
+			App.addKeyActive(GLUT_ACTIVE_ALT);
+			break;
+		default:
+			break;
+	}
 }
 
 void specialCallback(int keyPressed, int mouseX, int mouseY)

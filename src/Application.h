@@ -35,6 +35,8 @@ private:
 	vector<SceneObject*> objects;
 	vector<SceneObject*> plants;
 	ObjectShaderProgram objectShader;
+	//Keyboard
+	std::map<unsigned char, bool> m_KeyStates;
 	//Camera
 	CameraObject* camera;
 	//Lighting
@@ -73,7 +75,8 @@ public:
 	//TODO implement these as callbacks from the previous app
 	void handlePassiveMouse(int x, int y);
 	void handleMouse(int buttonPressed, int buttonState, int mouseX, int mouseY);
-	void handleKeyboard(unsigned char keyPressed, int mouseX, int mouseY);
+	void handleKeyboard();
+	void addKeyActive(unsigned char activeKey);
 	void handleSpecial(int keyPressed, int mouseX, int mouseY);
 	void handleReshape(int width, int height);
 	void updateDisplay();

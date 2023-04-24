@@ -1,5 +1,8 @@
 # Space Base Changelog
 
+## Version 1.4
+Added keyboard handling through a table of activated keys (this allows key combinations)
+
 ## Version 1.3
 Added the ability to send the camera along a spline curve of points settable in the config file using N.
 
