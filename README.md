@@ -8,9 +8,11 @@ The second folder called [src](src) contains the source code for this project.
 ## Controls
 * W, A, S, D: Camera movement
 * Mouse: Looking around
-* Shift + W: Movement upwards irrespecitve of the camera angle
-* Shift + S: Movement downwards irrespecitve of the camera angle
+* Alt + W: Movement upwards irrespecitve of the camera angle
+* Alt + S: Movement downwards irrespecitve of the camera angle
 * F: Toggle camera lock
 * C: Cycle through static cameras (Only in locked camera mode)
 * LMB: Interaction with specific objects.
 * Q: Attach the camera to the flying airplane.
+* N: Make the camera fly along a spline curve
+* R: Reloads the config file and updates the appropriate game objects
