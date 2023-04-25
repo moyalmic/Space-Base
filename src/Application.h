@@ -26,35 +26,35 @@ using namespace std;
 class Application
 {
 private:
-	string windowTitle;
-	int windowHeight;
-	int windowWidth;
+	string m_WindowTitle;
+	int m_WindowHeight;
+	int m_WindowWidth;
 	//Objects
-	vector<string> modelNames;
-	map<string, ModelData*> models;
-	vector<SceneObject*> objects;
-	vector<SceneObject*> plants;
-	ObjectShaderProgram objectShader;
+	vector<string> m_ModelNames;
+	map<string, ModelData*> m_Models;
+	vector<SceneObject*> m_Objects;
+	vector<SceneObject*> m_Plants;
+	ObjectShaderProgram m_ObjectShader;
 	//Keyboard
 	std::map<unsigned char, bool> m_KeyStates;
 	//Camera
-	CameraObject* camera;
+	CameraObject* m_Camera;
 	//Lighting
-	DirectionalLightObject* sun;
-	vector<PointLightObject*> lamps;
-	vector<SpotLightObject*> spotlights;
+	DirectionalLightObject* m_Sun;
+	vector<PointLightObject*> m_Lamps;
+	vector<SpotLightObject*> m_Spotlights;
 	//Skybox
-	Skybox* skybox;
-	SkyboxShaderProgram skyboxShader;
+	Skybox* m_Skybox;
+	SkyboxShaderProgram m_SkyboxShader;
 	//Billboards
-	BillboardShaderProgram billboardShader;
+	BillboardShaderProgram m_BillboardShader;
 	//Fog
-	Fog* fog;
+	Fog* m_Fog;
 	//Timekeeping
-	float elapsedTime;
+	float m_ElapsedTime;
 	//Explosions
-	BillboardData* explosionData;
-	vector<Explosion*> explosions;
+	BillboardData* m_ExplosionData;
+	vector<Explosion*> m_Explosions;
 	//Config
 	std::string m_ConfigFilename;
 	void addModelName(string modelName);

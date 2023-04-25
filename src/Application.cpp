@@ -2,117 +2,117 @@
 
 void Application::addModelName(string modelName)
 {
-	modelNames.push_back(modelName);
+	m_ModelNames.push_back(modelName);
 }
 
 void Application::initializeModels()
 {
 	//All objects that are imported through .obj
-	for (string modelName : modelNames)
+	for (string modelName : m_ModelNames)
 	{
 		string temp = modelName.substr(7, modelName.size() - 4 - 7);
-		models[temp] = new ModelData(modelName, objectShader);
+		m_Models[temp] = new ModelData(modelName, m_ObjectShader);
 	}
 	//Adding base with array instead of .obj
 	ModelData* lamp = new ModelData();
-	lamp->loadModelFromArray(objectShader, "models/LampTex.png", lampNVertices, lampVertices, lampNTriangles, lampTriangles);
-	models["lamp"] = lamp;
+	lamp->loadModelFromArray(m_ObjectShader, "models/LampTex.png", lampNVertices, lampVertices, lampNTriangles, lampTriangles);
+	m_Models["lamp"] = lamp;
 }
 
 void Application::initializeObjects()
 {
-	objects.push_back(new SceneObject(0, glm::vec3(0.0f, 10.0f, 0.0f), 0.0f, 180.0f, -30.0f, 0.0f, 3.0f, models["spaceship"]));
-	objects.push_back(new SceneObject(0, glm::vec3(0.0f, 8.0f, 0.0f), 0.0f, 0.0f, 0.0f, 0.0f, 75.0f, models["terrain"]));
-	objects.push_back(new SceneObject(0, glm::vec3(-15.0f, -0.5f, -20.0f), 0.0f, 37.5f, 0.0f, 0.0f, 7.0f, models["base"]));
-	objects.push_back(new SceneObject(0, glm::vec3(-8.0f, -2.5f, -16.0f), 0.0f, -52.5f, 0.0f, 0.0f, 1.5f, models["military_box"]));
-	objects.push_back(new SceneObject(0, glm::vec3(12.0f, -1.0f, -4.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, models["signpost"]));
-	objects.push_back(new SceneObject(3, glm::vec3(-10.0f, -1.8f, 15.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock1"]));
-	objects.push_back(new SceneObject(3, glm::vec3(10.0f, -1.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock1"]));
-	objects.push_back(new SceneObject(3, glm::vec3(-35.0f, -0.7f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock2"]));
-	objects.push_back(new SceneObject(3, glm::vec3(46.0f, 6.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, models["rock3"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 10.0f, 0.0f), 0.0f, 180.0f, -30.0f, 0.0f, 3.0f, m_Models["spaceship"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 8.0f, 0.0f), 0.0f, 0.0f, 0.0f, 0.0f, 75.0f, m_Models["terrain"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(-15.0f, -0.5f, -20.0f), 0.0f, 37.5f, 0.0f, 0.0f, 7.0f, m_Models["base"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(-8.0f, -2.5f, -16.0f), 0.0f, -52.5f, 0.0f, 0.0f, 1.5f, m_Models["military_box"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(12.0f, -1.0f, -4.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, m_Models["signpost"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(-10.0f, -1.8f, 15.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(10.0f, -1.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(-35.0f, -0.7f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock2"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(46.0f, 6.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock3"]));
 }
 
 void Application::initializeCamera()
 {
-	camera = new CameraObject(glm::vec3(10.0f, 2.0f, 6.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(-1.0f, 0.0f, 0.0f),
+	m_Camera = new CameraObject(glm::vec3(10.0f, 2.0f, 6.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(-1.0f, 0.0f, 0.0f),
 		0.0f, -90.0f, 1, false);
 }
 
 void Application::initializeLights()
 {
 	//Directional light (the sun)
-	sun = new DirectionalLightObject();
-	sun->setIntensity(0.5f);
-	sun->setupLight(objectShader);
+	m_Sun = new DirectionalLightObject();
+	m_Sun->setIntensity(0.5f);
+	m_Sun->setupLight(m_ObjectShader);
 	//Point light (lamp inside shelter)
-	lamps.push_back(new PointLightObject(glm::vec3(-15.0f, -2.0f, -20.0f), 
-		new SceneObject(1, glm::vec3(0.0f, 0.0f, 0.0f), -90.0f, 0.0f, 0.0f, 0.0f, 0.5f, models["lamp"])));
+	m_Lamps.push_back(new PointLightObject(glm::vec3(-15.0f, -2.0f, -20.0f), 
+		new SceneObject(1, glm::vec3(0.0f, 0.0f, 0.0f), -90.0f, 0.0f, 0.0f, 0.0f, 0.5f, m_Models["lamp"])));
 	//Yes this is called for a vector, but there will only be one point light because the shader can't handle more
-	for (PointLightObject* light : lamps)
+	for (PointLightObject* light : m_Lamps)
 	{
 		light->setAttenuationConstants(1.0f, 0.09f, 0.0032f);
-		light->setupLight(objectShader);
+		light->setupLight(m_ObjectShader);
 	}
 	//Spotlight (light ontop of shelter)
-	spotlights.push_back(new SpotLightObject(glm::vec3(-12.0f, 2.2f, -16.0f), 
-		new SceneObject(2, glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, -45.0f, 0.0f, 0.0f, 0.5f, models["spotlight"])));
-	for (SpotLightObject* spotlight : spotlights)
+	m_Spotlights.push_back(new SpotLightObject(glm::vec3(-12.0f, 2.2f, -16.0f), 
+		new SceneObject(2, glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, -45.0f, 0.0f, 0.0f, 0.5f, m_Models["spotlight"])));
+	for (SpotLightObject* spotlight : m_Spotlights)
 	{
 		spotlight->setDirection(glm::radians(0.0f), glm::radians(-45.0f));
 		spotlight->setCutoffs(0.91f, 0.82f);
-		spotlight->setupLight(objectShader);
+		spotlight->setupLight(m_ObjectShader);
 	}
 }
 
 void Application::initializeSkybox()
 {
-	skybox = new Skybox(skyboxShader, SkyboxType::Day);
+	m_Skybox = new Skybox(m_SkyboxShader, SkyboxType::Day);
 }
 
 void Application::initializeFog()
 {
-	fog = new Fog(0.014f, 2.5f, glm::vec3(0.4f, 0.5f, 0.6f));
-	fog->setupFog(objectShader);
+	m_Fog = new Fog(0.014f, 2.5f, glm::vec3(0.4f, 0.5f, 0.6f));
+	m_Fog->setupFog(m_ObjectShader);
 }
 
 void Application::initializeBillboards()
 {
-	explosionData = new BillboardData("models/explosion.png", billboardShader);
+	m_ExplosionData = new BillboardData("models/explosion.png", m_BillboardShader);
 }
 
 void Application::updateModels(float currentTime)
 {
 	//This erases all destoryed plants
-	auto plant = plants.begin();
-	while (plant != plants.end())
+	auto plant = m_Plants.begin();
+	while (plant != m_Plants.end())
 	{
 		if ((*plant)->isDestroyed())
-			plant = plants.erase(plant);
+			plant = m_Plants.erase(plant);
 		else
 			plant++;
 	}
 	//This will update the explosion billboards
-	auto explosion = explosions.begin();
-	while (explosion != explosions.end())
+	auto explosion = m_Explosions.begin();
+	while (explosion != m_Explosions.end())
 	{
-		if (elapsedTime > (*explosion)->getLifetime())
-			explosion = explosions.erase(explosion);
+		if (m_ElapsedTime > (*explosion)->getLifetime())
+			explosion = m_Explosions.erase(explosion);
 		else
 			explosion++;
 	}
 	//This moves the spaceship
-	objects[0]->moveAlongCircle(currentTime);
+	m_Objects[0]->moveAlongCircle(currentTime);
 }
 
 void Application::updateSun()
 {
-	glm::vec3 currentPosition = sun->getPosition();
+	glm::vec3 currentPosition = m_Sun->getPosition();
 
-	float positionX = 0 + (float)50 * cos(-elapsedTime);
-	float positionY = 0 + (float)50 * sin(-elapsedTime);
+	float positionX = 0 + (float)50 * cos(-m_ElapsedTime);
+	float positionY = 0 + (float)50 * sin(-m_ElapsedTime);
 	
-	sun->setPosition(glm::vec3(positionX, positionY, currentPosition.z));
-	sun->updatePosition(objectShader);
+	m_Sun->setPosition(glm::vec3(positionX, positionY, currentPosition.z));
+	m_Sun->updatePosition(m_ObjectShader);
 }
 
 bool Application::checkCollisions(CameraObject* camera, vector<SceneObject*> objects)
@@ -137,7 +137,7 @@ bool Application::checkCollisions(CameraObject* camera, vector<SceneObject*> obj
 }
 
 Application::Application(int width, int height, string title):
-	windowWidth(width), windowHeight(height), windowTitle(title), elapsedTime(0), m_ConfigFilename("settings/config.txt")
+	m_WindowWidth(width), m_WindowHeight(height), m_WindowTitle(title), m_ElapsedTime(0), m_ConfigFilename("settings/config.txt")
 {
 	
 }
@@ -149,8 +149,8 @@ void Application::initializeGlut(int argc, char** argv)
 	glutInitContextFlags(GLUT_FORWARD_COMPATIBLE);
 
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH | GLUT_STENCIL);
-	glutInitWindowSize(windowWidth, windowHeight);
-	glutCreateWindow(windowTitle.c_str());
+	glutInitWindowSize(m_WindowWidth, m_WindowHeight);
+	glutCreateWindow(m_WindowTitle.c_str());
 }
 
 void Application::initializeResources()
@@ -171,9 +171,9 @@ void Application::initializeResources()
 	addModelName("models/rock3.obj");
 	addModelName("models/signpost.obj");
 
-	objectShader.initializeShaders();
-	skyboxShader.initializeShaders();
-	billboardShader.initializeShaders();
+	m_ObjectShader.initializeShaders();
+	m_SkyboxShader.initializeShaders();
+	m_BillboardShader.initializeShaders();
 	initializeSkybox();
 	initializeModels();
 	initializeLights();
@@ -182,7 +182,7 @@ void Application::initializeResources()
 	initializeBillboards();
 	initializeObjects();
 	loadConfig();
-	glutWarpPointer(windowHeight / 2, windowWidth / 2);
+	glutWarpPointer(m_WindowHeight / 2, m_WindowWidth / 2);
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
@@ -190,13 +190,13 @@ void Application::initializeResources()
 
 void Application::handlePassiveMouse(int x, int y)
 {
-	if (camera->isFree())
+	if (m_Camera->isFree())
 	{
-		camera->updateMouseMovement(x, y, windowWidth, windowHeight);
-		glutWarpPointer(windowWidth / 2, windowHeight / 2);
+		m_Camera->updateMouseMovement(x, y, m_WindowWidth, m_WindowHeight);
+		glutWarpPointer(m_WindowWidth / 2, m_WindowHeight / 2);
 	}
 	else
-		glutWarpPointer(windowWidth / 2, windowHeight / 2);
+		glutWarpPointer(m_WindowWidth / 2, m_WindowHeight / 2);
 	
 	glutPostRedisplay();
 }
@@ -206,27 +206,27 @@ void Application::handleMouse(int buttonPressed, int buttonState, int mouseX, in
 	if (buttonPressed == GLUT_LEFT_BUTTON && buttonState == GLUT_DOWN)
 	{
 		unsigned char clickedObjectID;
-		glReadPixels(mouseX, windowHeight - 1 - mouseY, 1, 1, GL_STENCIL_INDEX, GL_UNSIGNED_BYTE, &clickedObjectID);
+		glReadPixels(mouseX, m_WindowHeight - 1 - mouseY, 1, 1, GL_STENCIL_INDEX, GL_UNSIGNED_BYTE, &clickedObjectID);
 
 		switch (clickedObjectID)
 		{
 		case 1:
-			lamps[0]->toggleLight(objectShader);
+			m_Lamps[0]->toggleLight(m_ObjectShader);
 			break;
 		case 2:
-			spotlights[0]->toggleLight(objectShader);
+			m_Spotlights[0]->toggleLight(m_ObjectShader);
 			break;
 		default:
 			break;
 		}
 		if (clickedObjectID >= 4 && clickedObjectID <= 8)
 		{
-			auto it = std::find_if(plants.begin(), plants.end(), [&](SceneObject* const& obj) {return obj->getID() == clickedObjectID; });
+			auto it = std::find_if(m_Plants.begin(), m_Plants.end(), [&](SceneObject* const& obj) {return obj->getID() == clickedObjectID; });
 			if (!(*it)->isDestroyed())
 			{
 				glm::vec3 explosionPosition = (*it)->getPosition();
 				(*it)->destroy();
-				explosions.push_back(new Explosion(explosionPosition, explosionData, elapsedTime, 16));
+				m_Explosions.push_back(new Explosion(explosionPosition, m_ExplosionData, m_ElapsedTime, 16));
 			}
 		}
 	}
@@ -240,65 +240,65 @@ void Application::handleKeyboard()
 	//Modified keys come before solo ones
 	else if (m_KeyStates['w'] && m_KeyStates[GLUT_ACTIVE_ALT])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveUp();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveUp();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['s'] && m_KeyStates[GLUT_ACTIVE_ALT])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveDown();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveDown();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['w'])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveForward();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveForward();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['s'])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveBack();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveBack();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['a'])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveLeft();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveLeft();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['d'])
 	{
-		if (camera->isFree())
+		if (m_Camera->isFree())
 		{
-			camera->moveRight();
-			camera->updateShaderPosition(objectShader);
+			m_Camera->moveRight();
+			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
 	else if (m_KeyStates['f'])
-		camera->changeMode();
+		m_Camera->changeMode();
 	else if (m_KeyStates['c'])
 	{
-		if (!camera->isFree())
-			camera->changeView();
+		if (!m_Camera->isFree())
+			m_Camera->changeView();
 	}
 	else if (m_KeyStates['q'])
-		camera->togglePlaneAttach();
+		m_Camera->togglePlaneAttach();
 	else if (m_KeyStates['r'])
 		loadConfig();
 	else if (m_KeyStates['n'])
-		camera->toggleMoveAlongSpline();
+		m_Camera->toggleMoveAlongSpline();
 
 	//Input is handled, clear for the next frame
 	m_KeyStates.clear();
@@ -316,18 +316,18 @@ void Application::handleSpecial(int keyPressed, int mouseX, int mouseY)
 	switch (keyPressed)
 	{
 	case GLUT_KEY_LEFT:
-		camera->changeView();
+		m_Camera->changeView();
 		break;
 	case GLUT_KEY_RIGHT:
-		camera->changeView();
+		m_Camera->changeView();
 	}
 }
 
 void Application::handleReshape(int width, int height)
 {
 	glViewport(0, 0, width, height);
-	windowWidth = width;
-	windowHeight = height;
+	m_WindowWidth = width;
+	m_WindowHeight = height;
 }
 
 void Application::updateDisplay()
@@ -337,68 +337,68 @@ void Application::updateDisplay()
 	GLbitfield mask = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 	glClear(mask);
 	//Set the cameras position to that of the plane if it should be attached
-	if (camera->attachedToPlane())
+	if (m_Camera->attachedToPlane())
 	{
-		auto newPos = objects[0]->getPosition();
+		auto newPos = m_Objects[0]->getPosition();
 		newPos.y += 2.0f; //Make the camera go above the plane
-		camera->setPosition(newPos);
+		m_Camera->setPosition(newPos);
 	}
 	//Set the cameras position to the appropriate point along the spline curve
-	else if (camera->movingAlongSpline())
+	else if (m_Camera->movingAlongSpline())
 	{
 		std::vector<glm::vec3> testPoints = {glm::vec3(0.0f, 20.0f, 0.0f), glm::vec3(10.0f, 20.0f, 5.0f), glm::vec3(15.0f, 20.0f, -5.0f), glm::vec3(-10.0f, 20.0f, 5.0f) };
-		float t = glm::sin(elapsedTime) * 0.5f + 0.5f; //This produces an oscillating value between 0 and 1 based on game time
-		camera->updateSplineMovement(t);
+		float t = glm::sin(m_ElapsedTime) * 0.5f + 0.5f; //This produces an oscillating value between 0 and 1 based on game time
+		m_Camera->updateSplineMovement(t);
 	}
 	//Calculate view and projection matrices
-	glm::vec3 cameraPosition = camera->getPosition();
-	glm::vec3 cameraUpVector = camera->getUpVector();
-	glm::vec3 cameraCenter = cameraPosition + camera->getDirection();
+	glm::vec3 cameraPosition = m_Camera->getPosition();
+	glm::vec3 cameraUpVector = m_Camera->getUpVector();
+	glm::vec3 cameraCenter = cameraPosition + m_Camera->getDirection();
 
 	glm::mat4 viewMatrix = glm::lookAt(
 		cameraPosition,
 		cameraCenter,
 		cameraUpVector
 	);
-	glm::mat4 projectionMatrix = glm::perspective(glm::radians(camera->getFOV()), windowWidth / (float)windowHeight, 0.1f, 1000.0f);
+	glm::mat4 projectionMatrix = glm::perspective(glm::radians(m_Camera->getFOV()), m_WindowWidth / (float)m_WindowHeight, 0.1f, 1000.0f);
 	//Draw Skybox
-	skybox->draw(skyboxShader, viewMatrix, projectionMatrix, elapsedTime);
+	m_Skybox->draw(m_SkyboxShader, viewMatrix, projectionMatrix, m_ElapsedTime);
 	//Draw Scene objects
-	for (SceneObject* object : objects)
+	for (SceneObject* object : m_Objects)
 	{
-		object->drawSceneObject(objectShader, viewMatrix, projectionMatrix);
+		object->drawSceneObject(m_ObjectShader, viewMatrix, projectionMatrix);
 	}
 	//Setting up stencil buffer
 	glEnable(GL_STENCIL_TEST);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 	CHECK_GL_ERROR();
 	//Draw plants (clickable objects)
-	for (SceneObject* object : plants)
+	for (SceneObject* object : m_Plants)
 	{
 		glStencilFunc(GL_ALWAYS, object->getID(), -1);
 		CHECK_GL_ERROR();
-		object->drawSceneObject(objectShader, viewMatrix, projectionMatrix);
+		object->drawSceneObject(m_ObjectShader, viewMatrix, projectionMatrix);
 	}
 	//Draw Point lights (they have models, for example a lamp)
-	for (PointLightObject* light : lamps)
+	for (PointLightObject* light : m_Lamps)
 	{
 		glStencilFunc(GL_ALWAYS, light->getID(), -1);
 		CHECK_GL_ERROR();
-		light->drawLightModel(objectShader, viewMatrix, projectionMatrix);
+		light->drawLightModel(m_ObjectShader, viewMatrix, projectionMatrix);
 	}
 	//Draw Spot lights 
-	for (SpotLightObject* light : spotlights)
+	for (SpotLightObject* light : m_Spotlights)
 	{
 		glStencilFunc(GL_ALWAYS, light->getID(), -1);
 		CHECK_GL_ERROR();
-		light->drawLightModel(objectShader, viewMatrix, projectionMatrix);
+		light->drawLightModel(m_ObjectShader, viewMatrix, projectionMatrix);
 	}
 	glDisable(GL_STENCIL_TEST);
 	//Draw active explosions
 	glDisable(GL_DEPTH_TEST);
-	for (Explosion* explosion : explosions)
+	for (Explosion* explosion : m_Explosions)
 	{
-		explosion->drawExplosion(billboardShader, viewMatrix, projectionMatrix, elapsedTime);
+		explosion->drawExplosion(m_BillboardShader, viewMatrix, projectionMatrix, m_ElapsedTime);
 	}
 	glEnable(GL_DEPTH_TEST);
 	glutSwapBuffers();
@@ -406,9 +406,9 @@ void Application::updateDisplay()
 
 void Application::handleTimer()
 {
-	elapsedTime = 0.001f * glutGet(GLUT_ELAPSED_TIME);
-	updateModels(elapsedTime);
-	if (checkCollisions(camera, objects))
+	m_ElapsedTime = 0.001f * glutGet(GLUT_ELAPSED_TIME);
+	updateModels(m_ElapsedTime);
+	if (checkCollisions(m_Camera, m_Objects))
 		glutLeaveMainLoop();
 	updateSun();
 
@@ -418,7 +418,7 @@ void Application::handleTimer()
 void Application::loadConfig()
 {
 	//Clear the plants array because they are going to be loaded from the config again
-	plants.clear();
+	m_Plants.clear();
 
 	ifstream inFile(m_ConfigFilename);
 	if (!inFile.is_open())
@@ -437,10 +437,10 @@ void Application::loadConfig()
 			token = line.substr(line.find(delimiter)+1, line.length());
 
 			if (token == "day")
-				skybox->setType(SkyboxType::Day);
+				m_Skybox->setType(SkyboxType::Day);
 			else if (token == "night")
-				skybox->setType(SkyboxType::Night);
-			skybox->loadImages();
+				m_Skybox->setType(SkyboxType::Night);
+			m_Skybox->loadImages();
 		}
 		//Load locations for the plants
 		else if (token == "plant")
@@ -450,7 +450,7 @@ void Application::loadConfig()
 			position >> x >> y >> z;
 
 			auto pos = glm::vec3(x, y, z);									//Give the plant a random spin
-			plants.push_back(new SceneObject(idx, pos, 0.0f, (float)(rand() % 360), 0.0f, 0.0f, 2.0f, models[token]));
+			m_Plants.push_back(new SceneObject(idx, pos, 0.0f, (float)(rand() % 360), 0.0f, 0.0f, 2.0f, m_Models[token]));
 			idx++;
 		}
 		//Load the spline curves to be used in the spline curve camera movement
@@ -460,7 +460,7 @@ void Application::loadConfig()
 			std::stringstream position(line.substr(line.find(delimiter) + 1, line.length()));
 			position >> x >> y >> z;
 
-			camera->addPointToSpline(glm::vec3(x, y, z));
+			m_Camera->addPointToSpline(glm::vec3(x, y, z));
 		}
 	
 	}
