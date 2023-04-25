@@ -21,20 +21,20 @@ void Application::initializeModels()
 
 void Application::initializeObjects()
 {
-	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 10.0f, 0.0f), 0.0f, 180.0f, -30.0f, 0.0f, 3.0f, m_Models["spaceship"]));
-	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 8.0f, 0.0f), 0.0f, 0.0f, 0.0f, 0.0f, 75.0f, m_Models["terrain"]));
-	m_Objects.push_back(new SceneObject(0, glm::vec3(-15.0f, -0.5f, -20.0f), 0.0f, 37.5f, 0.0f, 0.0f, 7.0f, m_Models["base"]));
-	m_Objects.push_back(new SceneObject(0, glm::vec3(-8.0f, -2.5f, -16.0f), 0.0f, -52.5f, 0.0f, 0.0f, 1.5f, m_Models["military_box"]));
-	m_Objects.push_back(new SceneObject(0, glm::vec3(12.0f, -1.0f, -4.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, m_Models["signpost"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(-10.0f, -1.8f, 15.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(10.0f, -1.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(-35.0f, -0.7f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock2"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(46.0f, 6.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock3"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 15.0f, 0.0f), 0.0f, 180.0f, -30.0f, 0.0f, 3.0f, m_Models["spaceship"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(0.0f, 13.0f, 0.0f), 0.0f, 0.0f, 0.0f, 0.0f, 75.0f, m_Models["terrain"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(-15.0f, 4.5f, -20.0f), 0.0f, 37.5f, 0.0f, 0.0f, 7.0f, m_Models["base"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(-8.0f, 2.5f, -16.0f), 0.0f, -52.5f, 0.0f, 0.0f, 1.5f, m_Models["military_box"]));
+	m_Objects.push_back(new SceneObject(0, glm::vec3(12.0f, 4.0f, -4.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, m_Models["signpost"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(-10.0f, 3.2f, 15.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(10.0f, 3.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(-35.0f, 4.3f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock2"]));
+	m_Objects.push_back(new SceneObject(3, glm::vec3(46.0f, 11.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock3"]));
 }
 
 void Application::initializeCamera()
 {
-	m_Camera = new CameraObject(glm::vec3(10.0f, 2.0f, 6.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(-1.0f, 0.0f, 0.0f),
+	m_Camera = new CameraObject(glm::vec3(10.0f, 7.0f, 6.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(-1.0f, 0.0f, 0.0f),
 		0.0f, -90.0f, 1, false);
 }
 
@@ -45,7 +45,7 @@ void Application::initializeLights()
 	m_Sun->setIntensity(0.5f);
 	m_Sun->setupLight(m_ObjectShader);
 	//Point light (lamp inside shelter)
-	m_Lamps.push_back(new PointLightObject(glm::vec3(-15.0f, -2.0f, -20.0f), 
+	m_Lamps.push_back(new PointLightObject(glm::vec3(-15.0f, 3.0f, -20.0f), 
 		new SceneObject(1, glm::vec3(0.0f, 0.0f, 0.0f), -90.0f, 0.0f, 0.0f, 0.0f, 0.5f, m_Models["lamp"])));
 	//Yes this is called for a vector, but there will only be one point light because the shader can't handle more
 	for (PointLightObject* light : m_Lamps)
@@ -54,7 +54,7 @@ void Application::initializeLights()
 		light->setupLight(m_ObjectShader);
 	}
 	//Spotlight (light ontop of shelter)
-	m_Spotlights.push_back(new SpotLightObject(glm::vec3(-12.0f, 2.2f, -16.0f), 
+	m_Spotlights.push_back(new SpotLightObject(glm::vec3(-12.0f, 7.2f, -16.0f), 
 		new SceneObject(2, glm::vec3(0.0f, 0.0f, 0.0f), 0.0f, -45.0f, 0.0f, 0.0f, 0.5f, m_Models["spotlight"])));
 	for (SpotLightObject* spotlight : m_Spotlights)
 	{
@@ -71,7 +71,7 @@ void Application::initializeSkybox()
 
 void Application::initializeFog()
 {
-	m_Fog = new Fog(0.014f, 2.5f, glm::vec3(0.4f, 0.5f, 0.6f));
+	m_Fog = new Fog(0.0001f, 0.001f, glm::vec3(0.4f, 0.5f, 0.6f));
 	m_Fog->setupFog(m_ObjectShader);
 }
 

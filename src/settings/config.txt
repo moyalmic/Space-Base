@@ -1,10 +1,10 @@
 skyboxType:night
-plant:35.0 -1.7 5.0
-plant:-30.0 -1.7 15.0
-plant:52.0 20.0 -63.0
-plant:-20.0 -1.7 -30.0
-plant:15.0 -1.7 25.0
-splinePoint: 0.0 20.0 0.0
-splinePoint: 10.0 20.0 5.0
-splinePoint: 15.0 20.0 -5.0
-splinePoint: -10.0 20.0 5.0
+plant:35.0 3.3 5.0
+plant:-30.0 3.3 15.0
+plant:52.0 25.0 -63.0
+plant:-20.0 3.3 -30.0
+plant:15.0 3.3 25.0
+splinePoint: 0.0 25.0 0.0
+splinePoint: 10.0 25.0 5.0
+splinePoint: 15.0 25.0 -5.0
+splinePoint: -10.0 25.0 5.0
