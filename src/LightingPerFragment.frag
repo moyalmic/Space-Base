@@ -142,13 +142,27 @@ vec3 spotLight(SpotLight light, Material material, vec3 fragmentNormal, vec3 fra
 	return resultingLight;
 }
 
-float FogFunc(vec4 fragFogPosition, Fog fog)
+float FogFunc(vec3 fragPosition, Fog fog)
 {
-	float distance = length(fragFogPosition.xyz);
-	float visibility = exp(-pow((distance*fog.density), fog.gradient));
-	visibility = clamp(visibility, 0.0f, 1.0f);
+	float fogStart = 0.0;
+	float fogEnd = 15.0;
+	float altitude = fragPosition.y; //y coordinate is very weird, should investigate further
+	float fogCoeficient = 0.0;
+	if (altitude < fogStart)
+	{
+		fogCoeficient = 1.0;
+	}
+	else if (altitude >= fogStart && altitude <= fogEnd)
+	{
+		fogCoeficient = exp(-pow(((altitude - fogStart) * fog.density), fog.gradient));
+		float fogBlend = smoothstep(fogEnd, fogStart, altitude);
+		fogCoeficient *= fogBlend;
+	}
 
-	return visibility;
+	fogCoeficient = clamp(fogCoeficient, 0.0, 1.0);
+	fogCoeficient = 2 * (0.5 - fogCoeficient) + fogCoeficient; //Need to flip the number around the 0.5 point because the calculation is backwards and I can't find out why
+
+	return fogCoeficient;
 }
 
 void main()
@@ -162,6 +176,6 @@ void main()
 	//Coloring
 	vec4 outcolor = vec4(lighting * fragmentColor, 1.0f);
 	//Fog
-	float fogCoef = FogFunc(fragmentFog, fog);
+	float fogCoef = FogFunc(fragmentPosition, fog);
 	fragColor = mix(vec4(fog.color, 1.0f), outcolor, fogCoef);
 }
