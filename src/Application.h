@@ -57,6 +57,8 @@ private:
 	vector<Explosion*> m_Explosions;
 	//Config
 	std::string m_ConfigFilename;
+	//Menu
+	int m_MenuOption;
 	void addModelName(string modelName);
 	void initializeModels();
 	void initializeObjects();
@@ -65,6 +67,7 @@ private:
 	void initializeSkybox();
 	void initializeFog();
 	void initializeBillboards();
+	void initializeMenu();
 	void updateModels(float currentTime);
 	void updateSun();
 	bool checkCollisions(CameraObject* camera, vector<SceneObject*> objects);
@@ -82,6 +85,8 @@ public:
 	void updateDisplay();
 	void handleTimer();
 	void loadConfig();
+	void toggleCameraLock();
+	void setCameraView(int value);
 };
 
 

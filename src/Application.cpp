@@ -139,7 +139,7 @@ bool Application::checkCollisions(CameraObject* camera, vector<SceneObject*> obj
 Application::Application(int width, int height, string title):
 	m_WindowWidth(width), m_WindowHeight(height), m_WindowTitle(title), m_ElapsedTime(0), m_ConfigFilename("settings/config.txt")
 {
-	
+	m_MenuOption = 4;
 }
 
 void Application::initializeGlut(int argc, char** argv)
@@ -186,6 +186,7 @@ void Application::initializeResources()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
+
 }
 
 void Application::handlePassiveMouse(int x, int y)
@@ -286,13 +287,6 @@ void Application::handleKeyboard()
 			m_Camera->updateShaderPosition(m_ObjectShader);
 		}
 	}
-	else if (m_KeyStates['f'])
-		m_Camera->changeMode();
-	else if (m_KeyStates['c'])
-	{
-		if (!m_Camera->isFree())
-			m_Camera->changeView();
-	}
 	else if (m_KeyStates['q'])
 		m_Camera->togglePlaneAttach();
 	else if (m_KeyStates['r'])
@@ -316,10 +310,10 @@ void Application::handleSpecial(int keyPressed, int mouseX, int mouseY)
 	switch (keyPressed)
 	{
 	case GLUT_KEY_LEFT:
-		m_Camera->changeView();
+		m_Camera->cycleView();
 		break;
 	case GLUT_KEY_RIGHT:
-		m_Camera->changeView();
+		m_Camera->cycleView();
 	}
 }
 
@@ -464,5 +458,15 @@ void Application::loadConfig()
 		}
 	
 	}
+}
+
+void Application::toggleCameraLock()
+{
+	m_Camera->changeMode();
+}
+
+void Application::setCameraView(int value)
+{
+	m_Camera->setView(value);
 }
 

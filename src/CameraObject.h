@@ -65,7 +65,8 @@ public:
 	void updateShaderPosition(ObjectShaderProgram& shader);
 	bool isFree();
 	void changeMode();
-	void changeView();
+	void setView(int value);
+	void cycleView();
 	//Plane attachment stuff
 	void togglePlaneAttach();
 	bool attachedToPlane();

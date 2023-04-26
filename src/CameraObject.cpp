@@ -187,24 +187,38 @@ void CameraObject::changeMode()
     freeMode = !freeMode;
 }
 
-void CameraObject::changeView()
+void CameraObject::setView(int value)
 {
-    if (view == 1)
-    {
-        setPosition(glm::vec3(50.0f, 10.0f, -20.0f));
-        setDirection(-10.0f, 135.0f);
-        setPitch(-10.0f);
-        setYaw(135.0f);
-        view = 2;
-    }
-    else if (view == 2)
-    {
-        setPosition(glm::vec3(-15.0f, 5.0f, -5.0f));
-        setDirection(0.0f, -45.0f);
-        setPitch(0.0f);
-        setYaw(-45.0f);
-        view = 1;
-    }
+  switch (value)
+  {
+    case 1:
+      setPosition(glm::vec3(50.0f, 10.0f, -20.0f));
+      setDirection(-10.0f, 135.0f);
+      setPitch(-10.0f);
+      setYaw(135.0f);
+      break;
+    case 2:
+      setPosition(glm::vec3(-15.0f, 5.0f, -5.0f));
+      setDirection(0.0f, 45.0f);
+      setPitch(0.0f);
+      setYaw(-45.0f);
+      break;
+    case 3:
+      setPosition(glm::vec3(0.0f, 10.0f, 0.0f));
+      setDirection(0.0f, -45.0f);
+      setPitch(-30.0f);
+      setYaw(0.0f);
+      break;
+    default:
+      break;
+  }
+  view = value;
+}
+
+void CameraObject::cycleView()
+{
+  view = ((view + 1) % 3) + 1;
+  setView(view);
 }
 
 void CameraObject::togglePlaneAttach()

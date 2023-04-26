@@ -1,5 +1,8 @@
 # Space Base Changelog
 
+## Version 1.5
+Removed the ability to change camera mode with F and Camera angles with C, they are now selectable by right clicking and picking from the menu.
+
 ## Version 1.4
 Added keyboard handling through a table of activated keys (this allows key combinations)
 
