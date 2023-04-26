@@ -59,6 +59,8 @@ void ObjectShaderProgram::initializeShaders()
 	//Fog locations
 	fogDensityLocation = glGetUniformLocation(program, "fog.density");
 	fogGradientLocation = glGetUniformLocation(program, "fog.gradient");
+	fogStartLocation = glGetUniformLocation(program, "fog.start");
+	fogEndLocation = glGetUniformLocation(program, "fog.end");
 	fogColorLocation = glGetUniformLocation(program, "fog.color");
 	//Camera Locations
 	cameraPositionLocation = glGetUniformLocation(program, "cameraPosition");

@@ -71,7 +71,7 @@ void Application::initializeSkybox()
 
 void Application::initializeFog()
 {
-	m_Fog = new Fog(0.0001f, 0.001f, glm::vec3(0.4f, 0.5f, 0.6f));
+	m_Fog = new Fog(0.0001f, 0.001f, 0.0f, 15.0f, glm::vec3(0.4f, 0.5f, 0.6f));
 	m_Fog->setupFog(m_ObjectShader);
 }
 

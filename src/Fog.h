@@ -5,10 +5,12 @@
 class Fog
 {
 private:
-	float density;
-	float gradient;
+	float m_Density;
+	float m_Gradient;
+	float m_FogStart;
+	float m_FogEnd;
 	glm::vec3 color;
 public:
-	Fog(float min, float max, glm::vec3 color);
+	Fog(float density, float gradient, float fogStart, float fogEnd, glm::vec3 color);
 	void setupFog(ObjectShaderProgram& shader);
 };

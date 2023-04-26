@@ -45,6 +45,8 @@ struct Fog
 {
 	float density;
 	float gradient;
+	float start;
+	float end;
 	vec3 color;
 };
 
@@ -144,18 +146,16 @@ vec3 spotLight(SpotLight light, Material material, vec3 fragmentNormal, vec3 fra
 
 float FogFunc(vec3 fragPosition, Fog fog)
 {
-	float fogStart = 0.0;
-	float fogEnd = 15.0;
 	float altitude = fragPosition.y; //y coordinate is very weird, should investigate further
 	float fogCoeficient = 0.0;
-	if (altitude < fogStart)
+	if (altitude < fog.start)
 	{
 		fogCoeficient = 1.0;
 	}
-	else if (altitude >= fogStart && altitude <= fogEnd)
+	else if (altitude >= fog.start && altitude <= fog.end)
 	{
-		fogCoeficient = exp(-pow(((altitude - fogStart) * fog.density), fog.gradient));
-		float fogBlend = smoothstep(fogEnd, fogStart, altitude);
+		fogCoeficient = exp(-pow(((altitude - fog.start) * fog.density), fog.gradient));
+		float fogBlend = smoothstep(fog.end, fog.start, altitude);
 		fogCoeficient *= fogBlend;
 	}
 

@@ -66,6 +66,8 @@ public:
 	//Fog locations
 	GLint fogDensityLocation;
 	GLint fogGradientLocation;
+	GLint fogStartLocation;
+	GLint fogEndLocation;
 	GLint fogColorLocation;
 	//Camera position
 	GLint cameraPositionLocation;
