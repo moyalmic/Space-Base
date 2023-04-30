@@ -26,10 +26,22 @@ void Application::initializeObjects()
 	m_Objects.push_back(new SceneObject(0, glm::vec3(-15.0f, 4.5f, -20.0f), 0.0f, 37.5f, 0.0f, 0.0f, 7.0f, m_Models["base"]));
 	m_Objects.push_back(new SceneObject(0, glm::vec3(-8.0f, 2.5f, -16.0f), 0.0f, -52.5f, 0.0f, 0.0f, 1.5f, m_Models["military_box"]));
 	m_Objects.push_back(new SceneObject(0, glm::vec3(12.0f, 4.0f, -4.0f), 0.0f, 90.0f, 0.0f, 0.0f, 2.0f, m_Models["signpost"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(-10.0f, 3.2f, 15.0f), 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(10.0f, 3.5f, -40.0f), -90.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock1"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(-35.0f, 4.3f, 37.0f), -32.5f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock2"]));
-	m_Objects.push_back(new SceneObject(3, glm::vec3(46.0f, 11.0f, 49.0f), -18.0f, 0.0f, 0.0f, 0.0f, 2.0f, m_Models["rock3"]));
+
+	vector<glm::vec3> positions = {glm::vec3(-10.0f, 3.2f, 15.0f), glm::vec3(10.0f, 3.5f, -40.0f), glm::vec3(-35.0f, 4.3f, 37.0f), glm::vec3(46.0f, 11.0f, 49.0f)};
+	//Randomness for rock scaling and orientation
+	std::mt19937 gen(std::random_device{}()); // seed the generator
+	std::uniform_real_distribution<> distrScale(m_RockScaling.first, m_RockScaling.second); // define the range
+	std::uniform_real_distribution<> distrPitch(0.0f, 360.0f); // define the range
+
+	//Randomness for rock type
+	std::discrete_distribution<int> distrType(m_RockDistribution.begin(), m_RockDistribution.end());
+
+	for (const auto& pos : positions)
+	{
+		string modelName = "rock" + to_string(distrType(gen) + 1);
+		m_Objects.push_back(new SceneObject(3, pos, distrPitch(gen), 0.0f, 0.0f, 0.0f, distrScale(gen), m_Models[modelName]));
+	}
+	
 }
 
 void Application::initializeCamera()
@@ -180,8 +192,8 @@ void Application::initializeResources()
 	initializeCamera();
 	initializeFog();
 	initializeBillboards();
-	initializeObjects();
 	loadConfig();
+	initializeObjects();
 	glutWarpPointer(m_WindowHeight / 2, m_WindowWidth / 2);
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -456,7 +468,25 @@ void Application::loadConfig()
 
 			m_Camera->addPointToSpline(glm::vec3(x, y, z));
 		}
-	
+		//Load procedural rock generation parameters
+		else if (token == "rockDistribution")
+		{
+			float x, y, z;
+			std::stringstream data(line.substr(line.find(delimiter) + 1, line.length()));
+			data >> x >> y >> z;
+
+			m_RockDistribution.push_back(x);
+			m_RockDistribution.push_back(y);
+			m_RockDistribution.push_back(z);
+		}
+		else if (token == "rockScaling")
+		{
+			float x, y;
+			std::stringstream data(line.substr(line.find(delimiter) + 1, line.length()));
+			data >> x >> y;
+
+			m_RockScaling = make_pair(x, y);
+		}
 	}
 }
 

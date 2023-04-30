@@ -16,6 +16,7 @@
 #include <unordered_map>
 #include <cstdlib>
 #include <sstream>
+#include <random>
 
 using namespace std;
 ///Class that holds information about the whole applicaton
@@ -59,6 +60,9 @@ private:
 	std::string m_ConfigFilename;
 	//Menu
 	int m_MenuOption;
+	//Prodecural rock parameters
+	vector<float> m_RockDistribution;
+	pair<float, float> m_RockScaling;
 	void addModelName(string modelName);
 	void initializeModels();
 	void initializeObjects();
@@ -67,7 +71,6 @@ private:
 	void initializeSkybox();
 	void initializeFog();
 	void initializeBillboards();
-	void initializeMenu();
 	void updateModels(float currentTime);
 	void updateSun();
 	bool checkCollisions(CameraObject* camera, vector<SceneObject*> objects);

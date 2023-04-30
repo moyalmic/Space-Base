@@ -1,5 +1,8 @@
 # Space Base Changelog
 
+## Version 1.6
+Rocks are now procedurally generated. Their type probability and scale range can be set from the config.txt file. Their orientation is random.
+
 ## Version 1.5
 Removed the ability to change camera mode with F and Camera angles with C, they are now selectable by right clicking and picking from the menu.
 

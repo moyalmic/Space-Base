@@ -10,8 +10,7 @@ The second folder called [src](src) contains the source code for this project.
 * Mouse: Looking around
 * Alt + W: Movement upwards irrespecitve of the camera angle
 * Alt + S: Movement downwards irrespecitve of the camera angle
-* F: Toggle camera lock
-* C: Cycle through static cameras (Only in locked camera mode)
+* RMB: Bring up a menu to toggle camera lock and choose specific camera views.
 * LMB: Interaction with specific objects.
 * Q: Attach the camera to the flying airplane.
 * N: Make the camera fly along a spline curve
