@@ -2,6 +2,16 @@
 #include "pgr.h"
 #include "ShaderProgram.h"
 
+//-----------------------------------------------
+/**
+*
+* \file       Material.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about a material type used in shaders for shading
+*
+*/
+//-----------------------------------------------
 class Material
 {
 public:

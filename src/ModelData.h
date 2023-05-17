@@ -8,7 +8,19 @@
 /**
 * This class loads data from .obj (or C array) files and stores them along with
 * their appropriate vbo, ebo and vao. Also contains information about the texture
+* 
+* @author		Michael Moyal
 */
+
+//-----------------------------------------------
+/**
+*
+* \file       ModelData.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about and manipulated 3D model data. Used for loading .obj 3D files.
+*/
+//-----------------------------------------------
 class ModelData
 {
 private:

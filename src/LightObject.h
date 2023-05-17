@@ -10,7 +10,21 @@
 * DirectionalLightObject, SpotLightObject and PointLightObject.
 * Each of these have different attributes and functionality
 * based on what is expected of the light type.
+* 
+* @author		Michael Moyal
 */
+
+//-----------------------------------------------
+/**
+*
+* \file       LightObject.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about lights. This is a Base class for DirectionalLightObject,
+*							SpotLightObject and PointLightObject.
+*
+*/
+//-----------------------------------------------
 class LightObject
 {
 protected:

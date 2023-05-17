@@ -11,10 +11,15 @@ enum SkyboxType
 	Night
 };
 
-///Class that holds texture information for skyboxes
+//-----------------------------------------------
 /**
-* This class contains the buffers needed for skybox drawing.
+*
+* \file       Skybox.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about the skybox, including texture and buffers
 */
+//-----------------------------------------------
 class Skybox
 {
 private:

@@ -7,7 +7,20 @@
 * All subclasses share a virtual method called initializeShaders which
 * loads the shader code, compiles it into a program and readies the locations
 * of all attributes and uniforms.
+* 
+* @author		Michael Moyal
 */
+
+//-----------------------------------------------
+/**
+*
+* \file       ShaderProgram.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information necessary for a glsl shader program. It is a base class to ObjectShaderProgram,
+*							SkyboxShaderProgram and BillboardShaderProgram.
+*/
+//-----------------------------------------------
 class ShaderProgram 
 {
 public:

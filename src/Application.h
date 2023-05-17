@@ -19,11 +19,16 @@
 #include <random>
 
 using namespace std;
-///Class that holds information about the whole applicaton
+//-----------------------------------------------
 /**
-* This class contains all of the resources necessary for the application,
-* for example models, objects, lights, shaders, etc.
+* 
+* \file       Application.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      This class contains all of the resources necessary for the application
+* 
 */
+//-----------------------------------------------
 class Application
 {
 private:

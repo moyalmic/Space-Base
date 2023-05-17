@@ -4,12 +4,16 @@
 #include <vector>
 
 #define CAMERA_PITCH_MAX 85.0f
-///Class that holds information about the camera
+//-----------------------------------------------
 /**
-* This class contains information necessary to move and update the camera, for example
-* it's position, upVector and center. It also contains other utilities like speed, yaw and pitch
-* and information about it's state (free mode or static)
+*
+* \file       CameraObject.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about the camera and methods to update the camera state
+*
 */
+//-----------------------------------------------
 class CameraObject
 {
 private:

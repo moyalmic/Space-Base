@@ -5,7 +5,16 @@
 #include "ModelData.h"
 #include "CameraObject.h"
 
-
+//-----------------------------------------------
+/**
+*
+* \file       Explosion.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that constains information about the Explosion data for explosion billboards
+*
+*/
+//-----------------------------------------------
 class Explosion
 {
 private:

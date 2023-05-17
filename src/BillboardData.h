@@ -3,10 +3,16 @@
 #include "ShaderProgram.h"
 #include <string>
 
-///Class that holds texture information for billboards
+//-----------------------------------------------
 /**
-* This class contains the buffers needed for billboard drawing.
+*
+* \file       BillboardData.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds texture information for billboards
+*
 */
+//-----------------------------------------------
 class BillboardData
 {
 public:

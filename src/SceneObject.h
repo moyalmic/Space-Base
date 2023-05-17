@@ -4,13 +4,16 @@
 #include "ModelData.h"
 #include "CameraObject.h"
 
-///Class that holds all information about a scene object
+//-----------------------------------------------
 /**
-* This class contains information about individual scene objects
-* It holds their position, rotation represented as three angles,
-* their speed, size, hitbox data and data of the model that belongs
-* to this scene object
+*
+* \file       SceneObject.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about scene objects, including position, speed, hitbox and model
+*
 */
+//-----------------------------------------------
 
 class SceneObject
 {

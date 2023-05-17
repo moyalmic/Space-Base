@@ -2,6 +2,17 @@
 #include "pgr.h"
 #include "ShaderProgram.h"
 
+
+//-----------------------------------------------
+/**
+*
+* \file       Fog.h
+* \author     Michael Moyal
+* \date       2023/17/05
+* \brief      Class that holds information about the fog settings
+*
+*/
+//-----------------------------------------------
 class Fog
 {
 private:
